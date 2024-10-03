@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingredients</title>
+  </head>
+  <body>
+    <%- include("../partials/_navbar.ejs") %>
+    <h1>Ingredients:</h1>
+    <div>
+      <% if(ingredients.length) {%>
+        <% ingredients.forEach((ingredient) => { %>
+          <p><%= ingredient.name %></p>
+        <% }) %>
+      <% } else { %>
+        <p>You have no ingredients. Better go to the grocery store.</p>
+      <% } %>
+    </div>
+    <form action="/ingredients" method="POST">
+      <label for="name">Ingredient Name:</label>
+      <input type="text" id="name" name="name" required />
+      <button type="submit">Add Ingredient</button>
+    </form>
+  </body>
+</html>
